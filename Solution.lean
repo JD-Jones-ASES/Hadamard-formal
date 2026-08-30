@@ -58,6 +58,34 @@ theorem handshake_mod_four
     m % 4 = 1 := by
   exact HadamardFormalCore.handshake_mod_four m hm D hsymm hdiag hoff hrow
 
+theorem no_handshake_matrix (m : ℕ) (hm0 : 0 < m) (hm : m % 4 ≠ 1) :
+    ¬ ∃ D : Matrix (Fin m) (Fin m) ℤ,
+        D.transpose = D ∧ (∀ i, D i i = 0) ∧
+          (∀ i j, i ≠ j → D i j = 1 ∨ D i j = -1) ∧ ∀ i, ∑ j, D i j = 0 := by
+  exact HadamardFormalCore.no_handshake_matrix m hm0 hm
+
+def c2Display (m : ℕ) (D₁ D₂ : Matrix (Fin m) (Fin m) ℤ) :
+    Matrix ((Fin 1 ⊕ Fin m) ⊕ (Fin 1 ⊕ Fin m))
+      ((Fin 1 ⊕ Fin m) ⊕ (Fin 1 ⊕ Fin m)) ℤ :=
+  Matrix.fromBlocks
+    (Matrix.fromBlocks 0 (Matrix.of fun _ _ ↦ 1) (Matrix.of fun _ _ ↦ 1) D₁)
+    (Matrix.fromBlocks 0 (Matrix.of fun _ _ ↦ 1) (Matrix.of fun _ _ ↦ 1) D₂)
+    (Matrix.fromBlocks 0 (Matrix.of fun _ _ ↦ 1) (Matrix.of fun _ _ ↦ 1) D₂)
+    (Matrix.fromBlocks 0 (Matrix.of fun _ _ ↦ -1) (Matrix.of fun _ _ ↦ -1) (-D₁))
+
+theorem no_c2_matrix (m : ℕ) (hm0 : 0 < m) (hm : m % 4 ≠ 1) :
+    ¬ ∃ D₁ D₂ : Matrix (Fin m) (Fin m) ℤ,
+        D₁.transpose = D₁ ∧ D₂.transpose = D₂ ∧
+          (∀ i j, IsSign ((D₁ + 1) i j) ∧ IsSign ((D₁ - 1) i j)) ∧
+            (∀ i j, IsSign ((D₂ + 1) i j) ∧ IsSign ((D₂ - 1) i j)) ∧
+              c2Display m D₁ D₂ * (c2Display m D₁ D₂).transpose
+                = (2 * (m : ℤ)) • 1 := by
+  rintro ⟨D₁, D₂, h₁, h₂, h₃, h₄, h₅⟩
+  refine HadamardFormalCore.no_c2_matrix m hm0 hm ⟨D₁, D₂, h₁, h₂, ?_, ?_, ?_⟩
+  · exact h₃
+  · exact h₄
+  · exact h₅
+
 theorem cooperWallis {t w : ℕ} [NeZero t] [NeZero w]
     {T : Quadruple t} {W : Quadruple w}
     (hT : IsTMatrixQuadruple T) (hW : IsWilliamson W) :

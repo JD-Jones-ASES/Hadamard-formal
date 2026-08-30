@@ -1,12 +1,20 @@
 cff-version: 1.2.0
 message: "If you use this formalization, cite it via this metadata."
-title: "hadamard-formal: Lean verification of periodic T-matrix constructions"
+title: "hadamard-formal: Lean verification of eight Hadamard orders unrecorded in the Cati-Pasechnik database"
 abstract: >-
-  A Lean 4 and Mathlib formalization of a parity obstruction for symmetric
-  zero-row-sum sign matrices, the Goethals-Seidel and Cooper-Wallis
-  constructions, kernel-checked periodic T-matrix and Williamson witnesses,
-  and Hadamard existence results at eight orders from 2884 through 11948.
-version: 0.1.0
+  A Lean 4 and Mathlib formalization proving Hadamard existence at eight
+  orders from 2884 through 11948, each listed as not recorded known in Table
+  4 of the Cati-Pasechnik construction database (arXiv:2411.18897v2,
+  2025-08-30), via the Goethals-Seidel and Cooper-Wallis constructions and
+  kernel-checked periodic T-matrix and Williamson witnesses. It also proves
+  the erratum core of the companion Hadamard-M note on Miyamoto 1991: the
+  handshake parity obstruction, its empty-class corollary, and the
+  nonexistence of the displayed C2-matrix ingredient of that paper's
+  Corollary 4 at every positive block order not congruent to 1 mod 4 -
+  closing both printed readings of the corollary and leaving its order-515
+  claim, a Hadamard matrix of order 2060, unsupported by the paper's own
+  machinery.
+version: 0.2.0
 url: "https://github.com/JD-Jones-ASES/Hadamard-formal"
 date-released: 2026-08-30
 authors:

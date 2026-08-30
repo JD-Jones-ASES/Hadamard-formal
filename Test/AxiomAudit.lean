@@ -21,6 +21,8 @@ def allowedAxioms : List Name :=
 
 def auditedDeclarations : List Name :=
   [``HadamardFormal.handshake_mod_four,
+    ``HadamardFormal.no_handshake_matrix,
+    ``HadamardFormal.no_c2_matrix,
     ``HadamardFormal.cooperWallis,
     ``HadamardFormal.hadamard_7172,
     ``HadamardFormal.hadamard_8476,
