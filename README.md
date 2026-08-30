@@ -70,8 +70,10 @@ credit for the classical mathematics.
 
 ## Reproduce
 
-Lean 4 and Mathlib are pinned by `lean-toolchain` and `lake-manifest.json`.
-With Elan installed:
+Lean 4 and Mathlib are pinned by `lean-toolchain` and `lake-manifest.json` at
+`v4.33.0` — the newest Lean release with a matching
+[lean4export](https://github.com/leanprover/lean4export) release, which
+Palomar's export check requires. With Elan installed:
 
 ```powershell
 lake exe cache get
