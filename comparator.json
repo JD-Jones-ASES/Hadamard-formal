@@ -1,0 +1,23 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "HadamardFormal.handshake_mod_four",
+    "HadamardFormal.cooperWallis",
+    "HadamardFormal.hadamard_7172",
+    "HadamardFormal.hadamard_8476",
+    "HadamardFormal.hadamard_2884",
+    "HadamardFormal.hadamard_4532",
+    "HadamardFormal.hadamard_7004",
+    "HadamardFormal.hadamard_7828",
+    "HadamardFormal.hadamard_9476",
+    "HadamardFormal.hadamard_11948"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}

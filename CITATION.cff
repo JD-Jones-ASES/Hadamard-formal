@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this formalization, cite it via this metadata."
+title: "hadamard-formal: Lean verification of periodic T-matrix constructions"
+abstract: >-
+  A Lean 4 and Mathlib formalization of a parity obstruction for symmetric
+  zero-row-sum sign matrices, the Goethals-Seidel and Cooper-Wallis
+  constructions, kernel-checked periodic T-matrix and Williamson witnesses,
+  and Hadamard existence results at eight orders from 2884 through 11948.
+version: 0.1.0
+url: "https://github.com/JD-Jones-ASES/Hadamard-formal"
+date-released: 2026-08-30
+authors:
+  - family-names: "Jones"
+    given-names: "JD"
+license: MIT

@@ -1,0 +1,157 @@
+version: "v0.4"
+
+project:
+  name: "hadamard-formal: Cooper-Wallis constructions and eight Hadamard orders"
+  description: >-
+    A Lean 4 formalization of a handshake parity obstruction, the periodic
+    Cooper-Wallis construction from a T-matrix quadruple and a Williamson
+    quadruple, and eight concrete Hadamard existence results obtained from
+    source-controlled, kernel-checked witnesses.
+  authors:
+    - "JD Jones"
+  license: "MIT"
+  responsible_maintainers:
+    - "JD Jones"
+
+classification:
+  arxiv:
+    - "math.CO"
+  msc2020:
+    - "05B20"
+
+sources:
+  - title: "Hadamard-T: T-matrix witnesses and the Hadamard orders they close"
+    authors:
+      - "JD Jones"
+    id: "https://github.com/JD-Jones-ASES/Hadamard-T/tree/d9e2e64a57f331e7528f0849e36206ca03c71588"
+    type: "other"
+    relationship: "formalizes"
+    note: >-
+      Source of the periodic T-matrix and Williamson definitions, the exact
+      witness data, the Cooper-Wallis composite, and the eight first-tranche
+      order calculations represented by the public theorem surface.
+    author_endorsement: "participated"
+  - title: "Hadamard-M: an erratum at order 515, and an explicit Hadamard matrix of order 7796"
+    authors:
+      - "JD Jones"
+    id: "https://github.com/JD-Jones-ASES/Hadamard-M/tree/1319c9d282f6c73ba024d6ec81b3212fdc122db2"
+    type: "other"
+    relationship: "formalizes"
+    note: >-
+      Source of the symmetric sign-matrix handshake obstruction formalized as
+      the public parity theorem. Claims about the paper erratum and order 7796
+      are outside this formalization's theorem surface.
+    author_endorsement: "participated"
+
+status:
+  scope: >-
+    The compared surface consists of the handshake parity theorem, a generic
+    periodic Cooper-Wallis existence theorem, and eight existence theorems at
+    orders 2884, 4532, 7004, 7172, 7828, 8476, 9476, and 11948. The project
+    does not formalize novelty or database-status claims, the order-2060
+    decoding process, the remaining Hadamard-T witness tranche, the Miyamoto
+    erratum as a bibliographic claim, order 7796, or explicit materialized
+    matrices at the eight output orders. Deliberate proof holes occur only in
+    Challenge.lean and are excluded from the solution axiom audit.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+    - "propext"
+    - "Classical.choice"
+    - "Quot.sound"
+
+automation:
+  methods:
+    - method: "agent"
+      models:
+        - "Claude Code (Fable 5)"
+        - "Codex (GPT 5.6 Sol)"
+        - "GPT 5.6 (external source review)"
+        - "Grok (external review; exact model not recorded)"
+      framework: "mixed AI-agent workflow"
+      tool_setup: >-
+        Fable produced the source mathematical repositories; GPT 5.6 and Grok
+        supplied external source reviews; Codex built the Lean formalization
+        and Palomar package. Exact-data import is guarded by SHA-256 pins and a
+        deterministic exporter, concrete predicates are checked by kernel
+        reduction, symbolic constructions are proved in Lean, and the public
+        proof closure is checked with Lean.collectAxioms.
+      prompting_notes: >-
+        The Lean build followed the repository's source-controlled pour plan,
+        with the public challenge restricted to the theorem statements and
+        definitions needed for the handshake and Cooper-Wallis results.
+  spend_usd: "not tracked"
+  notes: >-
+    AI assistance is disclosed at the project level and in both source
+    repositories. No independent human expert review is claimed here.
+
+fidelity:
+  divergences: >-
+    The formalization uses the periodic T-matrix predicate required by the
+    Cooper-Wallis construction, not the stronger aperiodic T-sequence notion.
+    It proves existence without materializing the resulting large matrices.
+    Its public Palomar surface intentionally omits source claims about novelty,
+    literature coverage, database status, and the construction at order 7796.
+
+review:
+  status: "self-assessed"
+  reviewers:
+    - "JD Jones"
+  notes: >-
+    The Lean kernel checks all solution proofs and concrete certificates, and
+    the build-time axiom audit permits only propext, Classical.choice, and
+    Quot.sound. The source mathematics received external AI review, but no
+    independent human expert review is represented by this status.
+
+alignment:
+  namespace: "HadamardFormal"
+  statements:
+    - source: "Hadamard-M, section 2.5, Proposition 3"
+      lean: "HadamardFormal.handshake_mod_four"
+      module: "Solution"
+      status: "proved"
+      note: "Formalizes the parity obstruction independently of the source-paper application."
+    - source: "Hadamard-T note, section 2, periodic Cooper-Wallis composite"
+      lean: "HadamardFormal.cooperWallis"
+      module: "Solution"
+      status: "proved"
+      note: "Uses the source orientation for periodic autocorrelation and yields order 4tw."
+    - source: "Hadamard-T note, section 6.1, T163 with Williamson order 11"
+      lean: "HadamardFormal.hadamard_7172"
+      module: "Solution"
+      status: "proved"
+    - source: "Hadamard-T note, section 6.1, T163 with Williamson order 13"
+      lean: "HadamardFormal.hadamard_8476"
+      module: "Solution"
+      status: "proved"
+    - source: "Hadamard-T note, section 5, T103 with Williamson order 7"
+      lean: "HadamardFormal.hadamard_2884"
+      module: "Solution"
+      status: "proved"
+    - source: "Hadamard-T note, section 5, T103 with Williamson order 11"
+      lean: "HadamardFormal.hadamard_4532"
+      module: "Solution"
+      status: "proved"
+    - source: "Hadamard-T note, section 5, T103 with Williamson order 17"
+      lean: "HadamardFormal.hadamard_7004"
+      module: "Solution"
+      status: "proved"
+    - source: "Hadamard-T note, section 5, T103 with Williamson order 19"
+      lean: "HadamardFormal.hadamard_7828"
+      module: "Solution"
+      status: "proved"
+    - source: "Hadamard-T note, section 5, T103 with Williamson order 23"
+      lean: "HadamardFormal.hadamard_9476"
+      module: "Solution"
+      status: "proved"
+    - source: "Hadamard-T note, section 5, T103 with Williamson order 29"
+      lean: "HadamardFormal.hadamard_11948"
+      module: "Solution"
+      status: "proved"
+
+acknowledgements: >-
+  Built with Lean and Mathlib. Public statement matching and independent replay
+  use Palomar Comparator, lean4export, and NanoDa. The mathematical source work
+  used Claude Code (Fable 5), GPT 5.6, and Grok; OpenAI Codex (GPT 5.6 Sol)
+  produced the Lean formalization and Palomar-facing package. The construction
+  machinery is due to Williamson, Goethals and Seidel, and Cooper and Wallis.
