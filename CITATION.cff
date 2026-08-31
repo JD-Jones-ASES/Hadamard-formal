@@ -15,6 +15,10 @@ abstract: >-
   claim, a Hadamard matrix of order 2060, unsupported by the paper's own
   machinery.
 version: 0.2.0
+identifiers:
+  - type: other
+    value: "PALOMAR-2026-08-31-000001"
+    description: "Palomar Registry entry, version 1, registered 2026-08-31 at commit 46544fab662e04db8b6fd18b47bd994585c4685c"
 url: "https://github.com/JD-Jones-ASES/Hadamard-formal"
 date-released: 2026-08-30
 authors:

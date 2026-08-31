@@ -8,6 +8,20 @@ ingredient proved nonexistent at every applicable block order, closing both
 printed readings of the affected corollary. All public theorems are
 kernel-checked on Lean's three standard axioms.
 
+## Registry
+
+Registered in the Palomar Registry as
+[PALOMAR-2026-08-31-000001](https://palomar-registry.org/entry?id=PALOMAR-2026-08-31-000001&version=1)
+(version 1, 2026-08-31), pinned to commit
+`46544fab662e04db8b6fd18b47bd994585c4685c`. The registration records that the
+twelve public theorems matched this repository's Mathlib-only challenge
+surface and that their proofs replayed in Lean's kernel and in Palomar's
+pinned independent NanoDa kernel at that commit, at import trust level
+`high`; Palomar keeps an archive fork of the repository at that commit. It
+certifies proof replay and statement fidelity — not literature status,
+novelty, or the documentary claims recorded below. Later commits here do not
+alter that entry, which stays pinned to the registered commit.
+
 ## What Lean proves
 
 - The standard Goethals--Seidel block-array theorem, followed by a single
